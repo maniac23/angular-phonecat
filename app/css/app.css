@@ -1,10 +1,4 @@
 /* app css stylesheet */
-
-body {
-  padding-top: 20px;
-}
-
-
 .phone-images {
   background-color: white;
   width: 450px;
@@ -96,4 +90,13 @@ ul.specs dt {
 
 h1 {
   border-bottom: 1px solid gray;
+}
+select{
+  width: 50%;
+}
+select.browser-default{
+  display: inline-block;
+}
+.card.medium .card-image{
+  max-height: 60%;
 }
