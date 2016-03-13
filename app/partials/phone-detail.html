@@ -1,10 +1,26 @@
-<div class="phone-images">
+<div class="conatiner-fluid">
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper blue darken-4">
+        <a href="#!" class="brand-logo center">{{phone.name}}</a>
+        <ul class="left hide-on-med-and-down">
+          <li>
+          <a href="/app/#/phones/"><i class="material-icons">arrow_back</i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+<div class="row">
+<div class="col m4">
+  <div class="phone-images">
   <img ng-src="{{img}}"
-       class="phone"
+       class="phone responsive-img"
        ng-repeat="img in phone.images"
        ng-class="{active: mainImageUrl==img}">
 </div>
-
+</div>
+<div class="col m8">
 <h1>{{phone.name}}</h1>
 
 <p>{{phone.description}}</p>
@@ -14,105 +30,127 @@
     <img ng-src="{{img}}" ng-click="setImage(img)">
   </li>
 </ul>
+</div>
+</div>
+<div class="specs">
+<div class="row">
+  <div class="col m4">
+  <div class="card-panel grey lighten-3">
+    <h5 class="specs-group-name">Battery</h5>
+    <div class="row">
+      <span class="col s6 specs-group-item">Type</span>
+      <span class="col s6">{{phone.battery.type}}</span>
+      <span class="col s6 specs-group-item">Talk Time</span>
+      <span class="col s6">{{phone.battery.talkTime}}</span>
+      <span class="col s6 specs-group-item">Standby time (max)</span>
+      <span class="col s6">{{phone.battery.standbyTime}}</span>
+    </div>
+    </div>
+  </div>
+  <div class="col m4">
+  <div class="card-panel grey lighten-3">
+    <h5 class="specs-group-name">Storage and Memory</h5>
+    <div class="row">
+      <span class="col s6 specs-group-item">RAM</span>
+      <span class="col s6">{{phone.storage.ram}}</span>
+      <span class="col s6 specs-group-item">Internal Storage</span>
+      <span class="col s6">{{phone.storage.flash}}</span>
+    </div>
+    </div>
+  </div>
+  <div class="col m4">
+   <div class="card-panel grey lighten-3">
+    <h5 class="specs-group-name">Connectivity</h5>
+    <div class="row">
+      <span class="col s6 specs-group-item">Network Support</span>
+      <span class="col s6">{{phone.connectivity.cell}}</span>
+      <span class="col s6 specs-group-item">WiFi</span>
+      <span class="col s6">{{phone.connectivity.wifi}}</span>
+      <span class="col s6 specs-group-item">Bluetooth</span>
+      <span class="col s6 ">{{phone.connectivity.bluetooth}}</span>
+      <span class="col s6 specs-group-item">Infrared</span>
+      <span class="col s6">{{phone.connectivity.infrared | checkmark}}</span>
+      <span class="col s6 specs-group-item">GPS</span>
+      <span class="col s6">{{phone.connectivity.gps | checkmark}}</span>
+    </div>
+  </div>
+</div>
+  <div class="col m4">
+   <div class="card-panel grey lighten-3">
+    <h5 class="specs-group-name">Android</h5>
+    <div class="row">
+      <span class="col s6 specs-group-item">OS Version</span>
+      <span class="col s6">{{phone.android.os}}</span>
+      <span class="col s6 specs-group-item">UI</span>
+      <span class="col s6">{{phone.android.ui}}</span>
+    </div>
+  </div>
+</div>
+  <div class="col m4">
+   <div class="card-panel grey lighten-3">
+    <h5 class="specs-group-name">Size and Weight</h5>
+    <div class="row">
+      <span class="col s6 specs-group-item">Dimensions</span>
+      <span class="col s6">
+        <span ng-repeat="dim in phone.sizeAndWeight.dimensions">
+          {{dim}}
+        </span>
+      </span>
+      <span class="col s6 specs-group-item">Weight</span>
+      <span class="col s6">{{phone.sizeAndWeight.weight}}</span>
+    </div>
+  </div>
+</div>
+  <div class="col m4">
+   <div class="card-panel grey lighten-3">
+    <h5 class="specs-group-name">Display</h5>
+    <div class="row">
+      <span class="col s6 specs-group-item">Screen size</span>
+      <span class="col s6">{{phone.display.screenSize}}</span>
+      <span class="col s6 specs-group-item">Screen resolution</span>
+      <span class="col s6">{{phone.display.screenResolution}}</span>
+      <span class="col s6 specs-group-item">Touch screen</span>
+      <span class="col s6">{{phone.display.touchScreen | checkmark}}</span>
+    </div>
+  </div>
+</div>
 
-<ul class="specs">
-  <li>
-    <span>Availability and Networks</span>
-    <dl>
-      <dt>Availability</dt>
-      <dd ng-repeat="availability in phone.availability">{{availability}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Battery</span>
-    <dl>
-      <dt>Type</dt>
-      <dd>{{phone.battery.type}}</dd>
-      <dt>Talk Time</dt>
-      <dd>{{phone.battery.talkTime}}</dd>
-      <dt>Standby time (max)</dt>
-      <dd>{{phone.battery.standbyTime}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Storage and Memory</span>
-    <dl>
-      <dt>RAM</dt>
-      <dd>{{phone.storage.ram}}</dd>
-      <dt>Internal Storage</dt>
-      <dd>{{phone.storage.flash}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Connectivity</span>
-    <dl>
-      <dt>Network Support</dt>
-      <dd>{{phone.connectivity.cell}}</dd>
-      <dt>WiFi</dt>
-      <dd>{{phone.connectivity.wifi}}</dd>
-      <dt>Bluetooth</dt>
-      <dd>{{phone.connectivity.bluetooth}}</dd>
-      <dt>Infrared</dt>
-      <dd>{{phone.connectivity.infrared | checkmark}}</dd>
-      <dt>GPS</dt>
-      <dd>{{phone.connectivity.gps | checkmark}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Android</span>
-    <dl>
-      <dt>OS Version</dt>
-      <dd>{{phone.android.os}}</dd>
-      <dt>UI</dt>
-      <dd>{{phone.android.ui}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Size and Weight</span>
-    <dl>
-      <dt>Dimensions</dt>
-      <dd ng-repeat="dim in phone.sizeAndWeight.dimensions">{{dim}}</dd>
-      <dt>Weight</dt>
-      <dd>{{phone.sizeAndWeight.weight}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Display</span>
-    <dl>
-      <dt>Screen size</dt>
-      <dd>{{phone.display.screenSize}}</dd>
-      <dt>Screen resolution</dt>
-      <dd>{{phone.display.screenResolution}}</dd>
-      <dt>Touch screen</dt>
-      <dd>{{phone.display.touchScreen | checkmark}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Hardware</span>
-    <dl>
-      <dt>CPU</dt>
-      <dd>{{phone.hardware.cpu}}</dd>
-      <dt>USB</dt>
-      <dd>{{phone.hardware.usb}}</dd>
-      <dt>Audio / headphone jack</dt>
-      <dd>{{phone.hardware.audioJack}}</dd>
-      <dt>FM Radio</dt>
-      <dd>{{phone.hardware.fmRadio | checkmark}}</dd>
-      <dt>Accelerometer</dt>
-      <dd>{{phone.hardware.accelerometer | checkmark}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Camera</span>
-    <dl>
-      <dt>Primary</dt>
-      <dd>{{phone.camera.primary}}</dd>
-      <dt>Features</dt>
-      <dd>{{phone.camera.features.join(', ')}}</dd>
-    </dl>
-  </li>
-  <li>
-    <span>Additional Features</span>
-    <dd>{{phone.additionalFeatures}}</dd>
-  </li>
-</ul>
+<div class="col m4">
+   <div class="card-panel grey lighten-3">
+    <h5 class="specs-group-name">Hardware</h5>
+    <div class="row">
+      <span class="col s6 specs-group-item">CPU</span>
+      <span class="col s6">{{phone.hardware.cpu}}</span>
+      <span class="col s6 specs-group-item">USB</span>
+      <span class="col s6">{{phone.hardware.usb}}</span>
+      <span class="col s6 specs-group-item">Audio / headphone jack</span>
+      <span class="col s6">{{phone.hardware.audioJack}}</span>
+      <span class="col s6 specs-group-item">FM Radio</span>
+      <span class="col s6">{{phone.hardware.fmRadio | checkmark}}</span>
+      <span class="col s6 specs-group-item">Accelerometer</span>
+      <span class="col s6">{{phone.hardware.accelerometer | checkmark}}</span>
+    </div>
+  </div>
+</div>
+<div class="col m4">
+   <div class="card-panel grey lighten-3">
+    <h5 class="specs-group-name">Camera</h5>
+    <div class="row">
+      <span class="col s6 specs-group-item">Primary</span>
+      <span class="col s6">{{phone.camera.primary}}</span>
+      <span class="col s6 specs-group-item">Features</span>
+      <span class="col s6">{{phone.camera.features.join(', ')}}</span>
+    </div>
+  </div>
+</div>
+<div class="col m4">
+   <div class="card-panel grey lighten-3">
+    <h5 class="specs-group-name">Additional Features</h5>
+    <div class="row">
+      <span class="col s6">{{phone.additionalFeatures}}</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>

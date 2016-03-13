@@ -29,12 +29,12 @@
 /** Detail View **/
 img.phone {
   float: left;
-  margin-right: 3em;
-  margin-bottom: 2em;
+/*  margin-right: 3em;
+  margin-bottom: 2em;*/
   background-color: white;
   padding: 2em;
   height: 400px;
-  width: 400px;
+  max-width: 350px;
   display: none;
 }
 
@@ -99,4 +99,26 @@ select.browser-default{
 }
 .card.medium .card-image{
   max-height: 60%;
+}
+.spec-name{
+  font-weight: bold;
+}
+.card-panel{
+  min-height: 250px;
+}
+.specs{
+  margin-top: 130px;
+}
+span{
+  margin-bottom: 15px;
+}
+.specs-group-name {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.specs-group-item {
+  font-weight: bold;
+}
+nav .brand-logo.center{
+  font-size: large;
 }
